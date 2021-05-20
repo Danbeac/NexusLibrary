@@ -1,0 +1,40 @@
+CREATE DATABASE NexusDb
+USE NexusDb
+
+CREATE TABLE Libros (
+	LibroId INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	Titulo VARCHAR(100) NOT NULL,
+	Year INT NOT NULL,
+	Genero VARCHAR(50) NOT NULL,
+	NumeroPaginas INT,
+	EditorialId INT NOT NULL,
+	AutorId INT NOT NULL,
+	Estado VARCHAR (1) DEFAULT 'A',
+	FechaCreacion DATETIME NOT NULL DEFAULT GETDATE()
+)
+
+
+CREATE TABLE Autores (
+	AutorId INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	NombreCompleto VARCHAR(200) NOT NULL,
+	FechaNacimiento DATE NOT NULL,
+	CiudadProcedencia VARCHAR(20) NOT NULL,
+	Email varchar(50) NOT NULL,
+	Estado VARCHAR (1) DEFAULT 'A',
+	FechaCreacion DATETIME NOT NULL DEFAULT GETDATE()
+)
+
+
+CREATE TABLE Editoriales (
+	EditorialId INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	Nombre VARCHAR(50) NOT NULL,
+	DireccionCorrespondencia VARCHAR(50),
+	Telefono VARCHAR(30),
+	Email VARCHAR(50) NOT NULL,
+	MaxLibrosRegistrados INT NOT NULL,
+	Estado VARCHAR (1) DEFAULT 'A',
+	FechaCreacion DATETIME NOT NULL DEFAULT GETDATE()
+)
+
+ALTER TABLE Libros ADD FOREIGN KEY (AutorId) REFERENCES Autores(AutorId)
+ALTER TABLE Libros ADD FOREIGN KEY (EditorialId) REFERENCES Editoriales(EditorialId)
