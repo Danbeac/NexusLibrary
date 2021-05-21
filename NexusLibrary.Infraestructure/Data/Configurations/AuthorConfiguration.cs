@@ -14,8 +14,7 @@ namespace NexusLibrary.Infraestructure.Data.Configurations
                     .HasName("PK__Autores__F58AE929A1678934");
 
             builder.Property(e => e.AuthorId)
-                .HasColumnName("AutorId")
-                .ValueGeneratedNever();
+                .HasColumnName("AutorId");
 
             builder.Property(e => e.FullName)
                     .HasColumnName("NombreCompleto")

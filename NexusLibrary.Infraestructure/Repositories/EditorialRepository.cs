@@ -2,6 +2,7 @@
 using NexusLibrary.Core.Entities;
 using NexusLibrary.Core.Interfaces;
 using NexusLibrary.Infrastructure.Data;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -32,6 +33,9 @@ namespace NexusLibrary.Infraestructure.Repositories
 
         public async Task Add(Editorial editorial)
         {
+            editorial.State = "A";
+            editorial.DateCreation = DateTime.Now;
+
             _context.Editorials.Add(editorial);
             await _context.SaveChangesAsync();
         }

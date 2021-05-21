@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NexusLibrary.API.Responses;
+using NexusLibrary.Core.DTOs;
 using NexusLibrary.Core.Entities;
 using NexusLibrary.Core.Interfaces;
 using System.Collections.Generic;
@@ -14,11 +16,15 @@ namespace NexusLibrary.API.Controllers
     {
         private readonly ILogger<AuthorController> _logger;
         private readonly IAuthorRepository _authorRepository;
+        private readonly IMapper _mapper;
 
-        public AuthorController(ILogger<AuthorController> logger, IAuthorRepository authorRepository)
+        public AuthorController(ILogger<AuthorController> logger, 
+                                IAuthorRepository authorRepository,
+                                IMapper mapper)
         {
             _logger = logger;
             _authorRepository = authorRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -38,10 +44,11 @@ namespace NexusLibrary.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddAuthor(Author author)
+        public async Task<IActionResult> AddAuthor(AuthorDto authorDto)
         {
+            var author = _mapper.Map<Author>(authorDto);
             await _authorRepository.Add(author);
-            var response = new Response<string>("Se ha añadido correctamente el author.");
+            var response = new Response<string>("Se ha añadido correctamente el autor.");
             return Ok(response);
         }
     }

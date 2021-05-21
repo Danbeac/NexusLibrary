@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using NexusLibrary.API.Responses;
+using NexusLibrary.Core.DTOs;
 using NexusLibrary.Core.Entities;
 using NexusLibrary.Core.Interfaces;
 using System.Collections.Generic;
@@ -12,9 +14,11 @@ namespace NexusLibrary.API.Controllers
     public class EditorialController : ControllerBase
     {
         private readonly IEditorialRepository _editorialRepository;
-        public EditorialController(IEditorialRepository editorialRepository)
+        private readonly IMapper _mapper;
+        public EditorialController(IEditorialRepository editorialRepository, IMapper mapper)
         {
             _editorialRepository = editorialRepository;
+            _mapper = mapper;
         }
         [HttpGet]
         public async Task<IActionResult> Get()
@@ -33,10 +37,12 @@ namespace NexusLibrary.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddEditorial(Editorial editorial)
+        public async Task<IActionResult> AddEditorial(EditorialDto editorialDto)
         {
+            var editorial = _mapper.Map<Editorial>(editorialDto);
             await _editorialRepository.Add(editorial);
-            var response = new Response<string>("Se ha añadido correctamente la editorial");
+
+            var response = new Response<string>("Se ha añadido correctamente la editorial.");
             return Ok(response);
         }
     }

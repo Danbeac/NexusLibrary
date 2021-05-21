@@ -8,6 +8,7 @@ using Microsoft.OpenApi.Models;
 using NexusLibrary.Core.Interfaces;
 using NexusLibrary.Infraestructure.Repositories;
 using NexusLibrary.Infrastructure.Data;
+using System;
 
 namespace NexusLibrary.API
 {
@@ -24,7 +25,13 @@ namespace NexusLibrary.API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers()
+                    .AddNewtonsoftJson(options =>
+                    {
+                        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                        //Configure to don't show Null Properties in the response Object
+                        options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                    }); ;
 
             //Connection DB
             var conn = Configuration.GetConnectionString("DefaultConnection");
@@ -34,6 +41,9 @@ namespace NexusLibrary.API
             services.AddTransient<IBookRepository, BookRepository>();
             services.AddTransient<IEditorialRepository, EditorialRepository>();
             services.AddTransient<IAuthorRepository, AuthorRepository>();
+
+            //Automapper
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddSwaggerGen(c =>
             {

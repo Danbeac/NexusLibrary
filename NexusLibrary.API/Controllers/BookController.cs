@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using NexusLibrary.API.Responses;
+using NexusLibrary.Core.DTOs;
 using NexusLibrary.Core.Entities;
 using NexusLibrary.Core.Interfaces;
 using System.Collections.Generic;
@@ -14,18 +16,24 @@ namespace NexusLibrary.API.Controllers
     {
         private readonly ILogger<BookController> _logger;
         private readonly IBookRepository _bookRepository;
+        private readonly IMapper _mapper;
 
-        public BookController(ILogger<BookController> logger, IBookRepository bookRepository)
+        public BookController(ILogger<BookController> logger, 
+                              IBookRepository bookRepository,
+                              IMapper mapper)
         {
             _logger = logger;
             _bookRepository = bookRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
             var books = await _bookRepository.GetAll();
-            var response = new Response<IEnumerable<Book>>(books);
+            var booksDto = _mapper.Map<IEnumerable<BookDto>>(books);
+
+            var response = new Response<IEnumerable<BookDto>>(booksDto);
             return Ok(response);
         }
 
@@ -38,9 +46,11 @@ namespace NexusLibrary.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddBook(Book book)
+        public async Task<IActionResult> AddBook(BookDto bookDto)
         {
+            var book = _mapper.Map<Book>(bookDto);
             await _bookRepository.Add(book);
+
             var response = new Response<string>("Se ha añadido correctamente el libro.");
             return Ok(response);
         }
