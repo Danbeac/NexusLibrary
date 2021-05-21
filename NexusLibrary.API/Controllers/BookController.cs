@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using NexusLibrary.API.Responses;
+using NexusLibrary.Core.Entities;
 using NexusLibrary.Core.Interfaces;
-using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace NexusLibrary.API.Controllers
 {
@@ -19,9 +22,11 @@ namespace NexusLibrary.API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            throw new NotImplementedException();
+            var books = await _bookRepository.GetAll();
+            var response = new Response<IEnumerable<Book>>(books);
+            return Ok(response);
         }
     }
 }
