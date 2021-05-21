@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using NexusLibrary.Core.Interfaces;
+using NexusLibrary.Infraestructure.Repositories;
 using NexusLibrary.Infrastructure.Data;
 
 namespace NexusLibrary.API
@@ -27,6 +29,9 @@ namespace NexusLibrary.API
             //Connection DB
             var conn = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(conn));
+
+            //Dependencies
+            services.AddTransient<IBookRepository, BookRepository>();
 
             services.AddSwaggerGen(c =>
             {

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using NexusLibrary.Core.Interfaces;
 using System;
 
 namespace NexusLibrary.API.Controllers
@@ -9,10 +10,12 @@ namespace NexusLibrary.API.Controllers
     public class BookController : ControllerBase
     {
         private readonly ILogger<BookController> _logger;
+        private readonly IBookRepository _bookRepository;
 
-        public BookController(ILogger<BookController> logger)
+        public BookController(ILogger<BookController> logger, IBookRepository bookRepository)
         {
             _logger = logger;
+            _bookRepository = bookRepository;
         }
 
         [HttpGet]
