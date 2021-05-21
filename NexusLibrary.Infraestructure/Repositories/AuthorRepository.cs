@@ -7,27 +7,26 @@ using System.Threading.Tasks;
 
 namespace NexusLibrary.Infraestructure.Repositories
 {
-    public class BookRepository : IBookRepository
+    public class AuthorRepository : IAuthorRepository
     {
         private readonly AppDbContext _context;
-        public BookRepository(AppDbContext context)
+        public AuthorRepository(AppDbContext context)
         {
             _context = context;
         }
-
-        public async Task<IEnumerable<Book>> GetAll()
+        public async Task<IEnumerable<Author>> GetAll()
         {
-            return await _context.Books.ToListAsync();
+            return await _context.Authors.ToListAsync();
         }
 
-        public async Task<Book> GetById(int bookId)
+        public async Task<Author> GetById(int authorId)
         {
-            return await _context.Books.FirstOrDefaultAsync(x => x.BookId == bookId);
+            return await _context.Authors.FirstOrDefaultAsync(x => x.AuthorId == authorId);
         }
 
-        public async Task Add(Book book)
+        public async Task Add(Author author)
         {
-            _context.Books.Add(book);
+            _context.Authors.Add(author);
             await _context.SaveChangesAsync();
         }
     }
