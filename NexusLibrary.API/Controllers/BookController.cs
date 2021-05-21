@@ -30,7 +30,7 @@ namespace NexusLibrary.API.Controllers
         }
 
         [HttpGet("{nameBook}")]
-        public async Task<IActionResult> GetBook([FromQuery] string nameBook)
+        public async Task<IActionResult> GetBook(string nameBook)
         {
             var book = await _bookRepository.GetByName(nameBook);
             var response = new Response<Book>(book);

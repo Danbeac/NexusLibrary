@@ -25,7 +25,7 @@ namespace NexusLibrary.API.Controllers
         }
 
         [HttpGet("{nameEditorial}")]
-        public async Task<IActionResult> GetEditorial([FromQuery] string nameEditorial)
+        public async Task<IActionResult> GetEditorial(string nameEditorial)
         {
             var editorial = await _editorialRepository.GetByName(nameEditorial);
             var response = new Response<Editorial>(editorial);

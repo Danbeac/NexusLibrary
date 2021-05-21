@@ -30,7 +30,7 @@ namespace NexusLibrary.API.Controllers
         }
 
         [HttpGet("{nameAuthor}")]
-        public async Task<IActionResult> GetAuthor([FromQuery] string nameAuthor)
+        public async Task<IActionResult> GetAuthor(string nameAuthor)
         {
             var author = await _authorRepository.GetByName(nameAuthor);
             var response = new Response<Author>(author);
