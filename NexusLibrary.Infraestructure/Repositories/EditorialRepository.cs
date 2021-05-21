@@ -25,6 +25,11 @@ namespace NexusLibrary.Infraestructure.Repositories
             return await _context.Editorials.FirstOrDefaultAsync(x => x.EditorialId == editorialId);
         }
 
+        public async Task<Editorial> GetByName(string nameEditorial)
+        {
+            return await _context.Editorials.FirstOrDefaultAsync(x => x.Name == nameEditorial);
+        }
+
         public async Task Add(Editorial editorial)
         {
             _context.Editorials.Add(editorial);

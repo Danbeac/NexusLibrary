@@ -32,6 +32,7 @@ namespace NexusLibrary.API
 
             //Dependencies
             services.AddTransient<IBookRepository, BookRepository>();
+            services.AddTransient<IEditorialRepository, EditorialRepository>();
 
             services.AddSwaggerGen(c =>
             {

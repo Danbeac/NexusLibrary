@@ -28,5 +28,13 @@ namespace NexusLibrary.API.Controllers
             var response = new Response<IEnumerable<Book>>(books);
             return Ok(response);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddBook(Book book)
+        {
+            await _bookRepository.Add(book);
+            var response = new Response<string>("Se ha añadido correctamente el libro.");
+            return Ok(response);
+        }
     }
 }
