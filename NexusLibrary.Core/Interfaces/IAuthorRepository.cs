@@ -8,6 +8,7 @@ namespace NexusLibrary.Core.Interfaces
     {
         Task<IEnumerable<Author>> GetAll();
         Task<Author> GetById(int authorId);
+        Task<Author> GetByName(string authorName);
         Task Add(Author author);
     }
 }

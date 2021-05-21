@@ -24,10 +24,16 @@ namespace NexusLibrary.Infraestructure.Repositories
             return await _context.Authors.FirstOrDefaultAsync(x => x.AuthorId == authorId);
         }
 
+        public async Task<Author> GetByName(string authorName)
+        {
+            return await _context.Authors.FirstOrDefaultAsync(x => x.FullName == authorName);
+        }
+
         public async Task Add(Author author)
         {
             _context.Authors.Add(author);
             await _context.SaveChangesAsync();
         }
+
     }
 }
