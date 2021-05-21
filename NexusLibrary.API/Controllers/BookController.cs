@@ -29,6 +29,14 @@ namespace NexusLibrary.API.Controllers
             return Ok(response);
         }
 
+        [HttpGet("{nameBook}")]
+        public async Task<IActionResult> GetBook([FromQuery] string nameBook)
+        {
+            var book = await _bookRepository.GetByName(nameBook);
+            var response = new Response<Book>(book);
+            return Ok(response);
+        }
+
         [HttpPost]
         public async Task<IActionResult> AddBook(Book book)
         {

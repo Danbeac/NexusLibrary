@@ -8,6 +8,7 @@ namespace NexusLibrary.Core.Interfaces
     {
         Task<IEnumerable<Book>> GetAll();
         Task<Book> GetById(int bookId);
+        Task<Book> GetByName(string bookName);
         Task Add(Book book);
     }
 }

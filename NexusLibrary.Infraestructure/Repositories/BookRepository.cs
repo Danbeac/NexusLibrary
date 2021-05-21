@@ -25,6 +25,11 @@ namespace NexusLibrary.Infraestructure.Repositories
             return await _context.Books.FirstOrDefaultAsync(x => x.BookId == bookId);
         }
 
+        public async Task<Book> GetByName(string bookName)
+        {
+            return await _context.Books.FirstOrDefaultAsync(x => x.Title == bookName);
+        }
+
         public async Task Add(Book book)
         {
             _context.Books.Add(book);
