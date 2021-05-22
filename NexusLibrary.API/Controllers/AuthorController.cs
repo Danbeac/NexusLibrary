@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace NexusLibrary.API.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class AuthorController : ControllerBase
     {
         private readonly ILogger<AuthorController> _logger;

@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace NexusLibrary.API.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class EditorialController : ControllerBase
     {
         private readonly IEditorialRepository _editorialRepository;
@@ -39,6 +39,10 @@ namespace NexusLibrary.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddEditorial(EditorialDto editorialDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return NotFound();
+            }
             var editorial = _mapper.Map<Editorial>(editorialDto);
             await _editorialRepository.Add(editorial);
 

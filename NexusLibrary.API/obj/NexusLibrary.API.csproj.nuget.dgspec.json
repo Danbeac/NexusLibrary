@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[8.1.1, )"
             },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[5.0.6, )"
@@ -202,6 +206,18 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.1.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Core": {
+              "target": "Package",
+              "version": "[2.2.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NexusLibrary.Core.Interfaces;
+using NexusLibrary.Infraestructure.Filters;
 using NexusLibrary.Infraestructure.Repositories;
 using NexusLibrary.Infrastructure.Data;
 using System;
@@ -26,12 +28,12 @@ namespace NexusLibrary.API
         {
 
             services.AddControllers()
-                    .AddNewtonsoftJson(options =>
-                    {
-                        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-                        //Configure to don't show Null Properties in the response Object
-                        options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
-                    }); ;
+            .AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                //Configure to don't show Null Properties in the response Object
+                options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+            }); ;
 
             //Connection DB
             var conn = Configuration.GetConnectionString("DefaultConnection");
@@ -45,10 +47,23 @@ namespace NexusLibrary.API
             //Automapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+            //Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NexusLibrary.API", Version = "v1" });
             });
+
+            //Validation Filter
+            services.AddMvc(options => 
+            {
+                options.Filters.Add<ValidationFilter>();
+            })
+            //Fluent Validation
+            .AddFluentValidation(options =>
+            {
+                options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+            });
+                
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
