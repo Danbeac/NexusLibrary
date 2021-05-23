@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NexusLibrary.Core.Interfaces;
+using NexusLibrary.Core.Services;
 using NexusLibrary.Infraestructure.Repositories;
 using NexusLibrary.Infrastructure.Data;
 using System;
@@ -41,6 +42,7 @@ namespace NexusLibrary.API
             services.AddTransient<IBookRepository, BookRepository>();
             services.AddTransient<IEditorialRepository, EditorialRepository>();
             services.AddTransient<IAuthorRepository, AuthorRepository>();
+            services.AddTransient<IBookService, BookService>();
 
             //Automapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

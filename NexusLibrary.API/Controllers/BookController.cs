@@ -16,14 +16,17 @@ namespace NexusLibrary.API.Controllers
     {
         private readonly ILogger<BookController> _logger;
         private readonly IBookRepository _bookRepository;
+        private readonly IBookService _bookService;
         private readonly IMapper _mapper;
 
         public BookController(ILogger<BookController> logger, 
                               IBookRepository bookRepository,
+                              IBookService bookService,
                               IMapper mapper)
         {
             _logger = logger;
             _bookRepository = bookRepository;
+            _bookService = bookService;
             _mapper = mapper;
         }
 
@@ -48,8 +51,8 @@ namespace NexusLibrary.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddBook(BookDto bookDto)
         {
-            var book = _mapper.Map<Book>(bookDto);
-            await _bookRepository.Add(book);
+            //var book = _mapper.Map<Book>(bookDto);
+            await _bookService.AddBook(bookDto);
 
             var response = new Response<string>("Se ha añadido correctamente el libro.");
             return Ok(response);

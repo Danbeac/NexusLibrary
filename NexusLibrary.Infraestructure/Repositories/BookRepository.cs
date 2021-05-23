@@ -4,6 +4,7 @@ using NexusLibrary.Core.Interfaces;
 using NexusLibrary.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace NexusLibrary.Infraestructure.Repositories
@@ -41,6 +42,11 @@ namespace NexusLibrary.Infraestructure.Repositories
 
             _context.Books.Add(book);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Book>> BooksByEditorialId(int editorialId)
+        {
+            return await _context.Books.Where(x => x.EditorialId == editorialId).ToListAsync();
         }
     }
 }

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "ZXfljJ1/UJMmE6OlzIh2fqSuirru7gOzX56Y58FYfQGbNHww82bhPXNCiPblYXe9HIyCrfNBGaln7+voB4kvxA==",
+  "dgSpecHash": "SoavETVfmC/UertJ3QehPrXvOGIFWUCAqG7i4+lf5PYEXiJzi3bFZQ4+6uNKX/vCzKinXp1SZibjDJX2nlXWHw==",
   "success": true,
   "projectFilePath": "C:\\Users\\DANIEL\\source\\repos\\NexusLibrary.API\\NexusLibrary.Core\\NexusLibrary.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\DANIEL\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\DANIEL\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\DANIEL\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

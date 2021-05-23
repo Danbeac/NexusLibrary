@@ -10,5 +10,6 @@ namespace NexusLibrary.Core.Interfaces
         Task<Book> GetById(int bookId);
         Task<Book> GetByName(string bookName);
         Task Add(Book book);
+        Task<IEnumerable<Book>> BooksByEditorialId(int editorialId);
     }
 }

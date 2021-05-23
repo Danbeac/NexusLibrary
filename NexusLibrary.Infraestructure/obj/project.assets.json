@@ -1915,6 +1915,9 @@
       "NexusLibrary.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "AutoMapper": "10.1.1"
+        },
         "compile": {
           "bin/placeholder/NexusLibrary.Core.dll": {}
         },
