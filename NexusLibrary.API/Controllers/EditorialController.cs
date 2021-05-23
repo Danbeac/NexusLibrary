@@ -39,10 +39,6 @@ namespace NexusLibrary.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddEditorial(EditorialDto editorialDto)
         {
-            if (!ModelState.IsValid)
-            {
-                return NotFound();
-            }
             var editorial = _mapper.Map<Editorial>(editorialDto);
             await _editorialRepository.Add(editorial);
 

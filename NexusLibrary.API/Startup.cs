@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NexusLibrary.Core.Interfaces;
-using NexusLibrary.Infraestructure.Filters;
 using NexusLibrary.Infraestructure.Repositories;
 using NexusLibrary.Infrastructure.Data;
 using System;
@@ -30,7 +29,6 @@ namespace NexusLibrary.API
             services.AddControllers()
             .AddNewtonsoftJson(options =>
             {
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 //Configure to don't show Null Properties in the response Object
                 options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             }); ;
@@ -53,11 +51,7 @@ namespace NexusLibrary.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "NexusLibrary.API", Version = "v1" });
             });
 
-            //Validation Filter
-            services.AddMvc(options => 
-            {
-                options.Filters.Add<ValidationFilter>();
-            })
+            services.AddMvc()
             //Fluent Validation
             .AddFluentValidation(options =>
             {

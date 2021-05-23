@@ -1,26 +1,26 @@
 ﻿using FluentValidation;
-using NexusLibrary.Core.Entities;
+using NexusLibrary.Core.DTOs;
 
 namespace NexusLibrary.Infraestructure.Validators
 {
-    public class EditorialValidator : AbstractValidator<Editorial>
+    public class EditorialValidator : AbstractValidator<EditorialDto>
     {
         public EditorialValidator()
         {
             RuleFor(editorial => editorial.Name)
-            .NotNull()
+            .NotEmpty()
             .WithMessage("El nombre de la editorial no puede ser vacio");
 
             RuleFor(editorial => editorial.CorrespondenceAdress)
-            .NotNull()
+            .NotEmpty()
             .WithMessage("La direccion de correspondencia no puede estar vacia");
 
             RuleFor(editorial => editorial.Phonenumber)
-            .NotNull()
+            .NotEmpty()
             .WithMessage("El numero de telefono de la editorial no puede ser vacio");
 
             RuleFor(editorial => editorial.Email)
-            .NotNull()
+            .NotEmpty()
             .WithMessage("El email no puede estar vacio");
         }
     }

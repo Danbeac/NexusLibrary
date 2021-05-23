@@ -8,19 +8,19 @@ namespace NexusLibrary.Infraestructure.Validators
         public AuthorValidator()
         {
             RuleFor(author => author.FullName)
-            .NotNull()
+            .NotEmpty()
             .WithMessage("El nombre del autor no puede ser vacio");
 
             RuleFor(author => author.DateBirthday)
-            .NotNull()
+            .NotEmpty()
             .WithMessage("La fecha de nacimiento no puede ser vacio");
 
             RuleFor(author => author.CityBirth)
-            .NotNull()
+            .NotEmpty()
             .WithMessage("La ciudad de procedencia no puede ser vacio");
 
             RuleFor(author => author.Email)
-            .NotNull()
+            .NotEmpty()
             .WithMessage("El email no puede ser vacio");
         }
     }
