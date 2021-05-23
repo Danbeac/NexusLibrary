@@ -36,9 +36,6 @@ namespace NexusLibrary.Infraestructure.Repositories
         {
             book.DateCreation = DateTime.Now;
             book.State = "A";
-            book.AuthorId = 1;
-            book.EditorialId = 5;
-            book.Editorial = null;
 
             _context.Books.Add(book);
             await _context.SaveChangesAsync();

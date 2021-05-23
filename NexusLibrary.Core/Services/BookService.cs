@@ -28,13 +28,13 @@ namespace NexusLibrary.Core.Services
         public async Task AddBook(BookDto bookDto)
         {
             int NOLIMT = -1;
-            var editorial = await _editorialRepository.GetByName(bookDto.EditorialName);
+            var editorial = await _editorialRepository.GetByName(bookDto.NameEditorial);
             if(editorial == null)
             {
                 throw new Exception("La editorial no está registrada");
             }
 
-            var author = await _authorRepository.GetByName(bookDto.AuthorName);
+            var author = await _authorRepository.GetByName(bookDto.NameAuthor);
             if (author == null)
             {
                 throw new Exception("El autor no está registrado");
@@ -53,9 +53,6 @@ namespace NexusLibrary.Core.Services
             var book = _mapper.Map<Book>(bookDto);
             book.EditorialId = editorial.EditorialId;
             book.AuthorId = author.AuthorId;
-            book.State = "A";
-            book.DateCreation = DateTime.Now;
-
             await _bookRepository.Add(book);
         }
     }

@@ -51,7 +51,6 @@ namespace NexusLibrary.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddBook(BookDto bookDto)
         {
-            //var book = _mapper.Map<Book>(bookDto);
             await _bookService.AddBook(bookDto);
 
             var response = new Response<string>("Se ha añadido correctamente el libro.");

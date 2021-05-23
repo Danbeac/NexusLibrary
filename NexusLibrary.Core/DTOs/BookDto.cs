@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NexusLibrary.Core.DTOs
+﻿namespace NexusLibrary.Core.DTOs
 {
     public class BookDto
     {
@@ -13,8 +7,8 @@ namespace NexusLibrary.Core.DTOs
         public int Year { get; set; }
         public string Gender { get; set; }
         public int? PageNumber { get; set; }
-        public string EditorialName { get; set; }
-        public string AuthorName { get; set; }
+        public string NameEditorial { get; set; }
+        public string NameAuthor { get; set; }
 
     }
 }

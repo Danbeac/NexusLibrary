@@ -19,11 +19,11 @@ namespace NexusLibrary.Infraestructure.Validators
                 .NotEmpty()
                 .WithMessage("El genero del libro no puede ser vacio");
 
-            RuleFor(book => book.AuthorName)
+            RuleFor(book => book.NameAuthor)
                 .NotEmpty()
                 .WithMessage("El nombre del autor no puede ser vacio");
 
-            RuleFor(book => book.EditorialName)
+            RuleFor(book => book.NameEditorial)
                 .NotEmpty()
                 .WithMessage("El nombre de la editorial no puede ser vacio");
         }
