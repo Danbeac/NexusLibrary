@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using NexusLibrary.Core.Interfaces;
 using NexusLibrary.Core.Services;
+using NexusLibrary.Infraestructure.Filters;
 using NexusLibrary.Infraestructure.Repositories;
 using NexusLibrary.Infrastructure.Data;
 using System;
@@ -27,7 +28,10 @@ namespace NexusLibrary.API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers()
+            services.AddControllers(options =>
+            {
+                options.Filters.Add<GlobalExceptionFilter>();
+            })
             .AddNewtonsoftJson(options =>
             {
                 //Configure to don't show Null Properties in the response Object
