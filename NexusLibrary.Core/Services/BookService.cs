@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using NexusLibrary.Core.DTOs;
 using NexusLibrary.Core.Entities;
+using NexusLibrary.Core.Exceptions;
 using NexusLibrary.Core.Interfaces;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -31,13 +31,13 @@ namespace NexusLibrary.Core.Services
             var editorial = await _editorialRepository.GetByName(bookDto.NameEditorial);
             if(editorial == null)
             {
-                throw new Exception("La editorial no está registrada");
+                throw new BusinessException("La editorial no está registrada");
             }
 
             var author = await _authorRepository.GetByName(bookDto.NameAuthor);
             if (author == null)
             {
-                throw new Exception("El autor no está registrado");
+                throw new BusinessException("El autor no está registrado");
             }
 
             if(!(editorial.MaxBooksRegistered == NOLIMT))
@@ -46,7 +46,7 @@ namespace NexusLibrary.Core.Services
 
                 if (booksEditorial.Count() >= editorial.MaxBooksRegistered)
                 {
-                    throw new Exception("No es posible registrar el libro, se alcanzó el máximo permitido.");
+                    throw new BusinessException("No es posible registrar el libro, se alcanzó el máximo permitido.");
                 }
             }
 
