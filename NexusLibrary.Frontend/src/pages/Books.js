@@ -1,12 +1,14 @@
 import React from 'react';
 import api from '../api';
+import imageBook from '../images/book.jpg';
+import BooksList from '../components/BooksList';
 
 class MainComponent extends React.Component {
     state = {
         data : undefined
     }
 
-    componentDidMount(){
+    componentWillMount(){
         this.fetchData();
     }
 
@@ -14,14 +16,24 @@ class MainComponent extends React.Component {
         try{
             const res = await api.books.list();
             this.setState({data : res.data});
-            console.log(res.data);
+            console.log(this.state.data);
         }catch(error){
             console.log(error);
         }
     }
 
     render(){
-        return <p>Hola Mundo</p>
+        if(!this.state.data){
+            return(<p>Loading ...</p>)
+        }
+
+        return (
+            <React.Fragment>
+            <h1>Books</h1>
+
+            <BooksList books={this.state.data}/>
+            </React.Fragment>
+        )
     }
 }
 

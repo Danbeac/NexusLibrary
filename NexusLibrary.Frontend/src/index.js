@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import MainComponent from "./Components/MainComponent";
+import MainComponent from "./pages/Books";
 
 ReactDOM.render(
   <React.StrictMode>
