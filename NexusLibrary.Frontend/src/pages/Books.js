@@ -1,11 +1,13 @@
 import React from 'react';
 import api from '../api';
-import imageBook from '../images/book.jpg';
 import BooksList from '../components/BooksList';
+import PageError from '../components/PageError';
 
 class MainComponent extends React.Component {
     state = {
-        data : undefined
+        data : undefined,
+        loading: true,
+        error: null
     }
 
     componentWillMount(){
@@ -13,17 +15,23 @@ class MainComponent extends React.Component {
     }
 
     fetchData = async () => {
+        this.setState({loading: true, error: null});
+
         try{
             const res = await api.books.list();
-            this.setState({data : res.data});
-            console.log(this.state.data);
+            this.setState({loading: false, data : res.data});
         }catch(error){
-            console.log(error);
+            this.setState({loading: false, error: error});
         }
     }
 
     render(){
-        if(!this.state.data){
+
+        if(this.state.error){
+            return <PageError error={this.state.error}/>
+        }
+
+        if(this.state.loading || !this.state.data){
             return(<p>Loading ...</p>)
         }
 
