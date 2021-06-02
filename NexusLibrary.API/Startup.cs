@@ -42,6 +42,8 @@ namespace NexusLibrary.API
             })
             .AddNewtonsoftJson(options =>
             {
+                //Configure to Ignore LoopingReference
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
                 //Configure to don't show Null Properties in the response Object
                 options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
             }); ;

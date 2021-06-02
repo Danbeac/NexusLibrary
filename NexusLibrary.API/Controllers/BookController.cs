@@ -56,5 +56,14 @@ namespace NexusLibrary.API.Controllers
             var response = new Response<string>("Se ha añadido correctamente el libro.");
             return Ok(response);
         }
+
+        [HttpGet]
+        [Route("BooksByEditorialName")]
+        public async Task<IActionResult> BooksByEditorialName(string editorialName)
+        {
+            var books = await _bookService.GetBooksByEditorialName(editorialName);
+            var response = new Response<IEnumerable<BookEditorialDto>>(books);
+            return Ok(response);
+        }
     }
 }

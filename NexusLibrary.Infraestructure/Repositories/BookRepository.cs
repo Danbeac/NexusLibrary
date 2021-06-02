@@ -19,7 +19,7 @@ namespace NexusLibrary.Infraestructure.Repositories
 
         public async Task<IEnumerable<Book>> GetAll()
         {
-            return await _context.Books.ToListAsync();
+            return await _context.Books.Include(x => x.Editorial).ToListAsync();
         }
 
         public async Task<Book> GetById(int bookId)

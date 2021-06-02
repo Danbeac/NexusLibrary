@@ -3,6 +3,7 @@ using NexusLibrary.Core.DTOs;
 using NexusLibrary.Core.Entities;
 using NexusLibrary.Core.Exceptions;
 using NexusLibrary.Core.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -54,6 +55,27 @@ namespace NexusLibrary.Core.Services
             book.EditorialId = editorial.EditorialId;
             book.AuthorId = author.AuthorId;
             await _bookRepository.Add(book);
+        }
+
+        public async Task<IEnumerable<BookEditorialDto>> GetBooksByEditorialName(string name)
+        {
+            var books = await _bookRepository.GetAll();
+
+            //IEnumerable<Book> booksByEditorial = books.Where(x => x.Editorial.Name.
+            //                                                            ToLower().
+            //                                                            StartsWith(name.ToLower()));
+
+            var booksByEditorial = from bks in books
+                                   where bks.Editorial.Name
+                                            .ToLower()
+                                            .StartsWith(name.ToLower())
+                                   orderby bks.Title descending
+                                   select new BookEditorialDto { TitleBook = bks.Title,
+                                                                 EditorialName = bks.Editorial.Name,
+                                                                 RandomNumber = (int)bks.PageNumber * 3
+                                   };
+
+            return booksByEditorial;
         }
     }
 }
