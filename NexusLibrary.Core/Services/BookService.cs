@@ -3,7 +3,9 @@ using NexusLibrary.Core.DTOs;
 using NexusLibrary.Core.Entities;
 using NexusLibrary.Core.Exceptions;
 using NexusLibrary.Core.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 

@@ -1,0 +1,120 @@
+REPORT STATE BOOKS 2/06/2021 9:33:47 p. m.
+===========================================
+Books in State = 'A'
+===========================================
+Macaca fuscata - Animation/Children/Comedy/Musical
+Tiliqua scincoides - Comedy/Drama/Romance
+Pseudalopex gymnocercus - Action/Adventure/Comedy
+Lycaon pictus - Comedy/Horror
+Sula dactylatra - Comedy/Drama/Fantasy
+Cervus unicolor - Drama
+Trichoglossus haematodus moluccanus - Crime
+Paradoxurus hermaphroditus - Comedy/Romance
+Pteronura brasiliensis - Comedy/Romance
+Dicrurus adsimilis - Drama
+Phascogale tapoatafa - Documentary
+Chauna torquata - Mystery/Thriller
+Speotyte cuniculata - Romance/Thriller
+Lophoaetus occipitalis - Comedy
+Ceratotherium simum - Crime/Drama/Film/Noir
+Canis lupus - Children/Fantasy/Musical
+Eremophila alpestris - Drama/Thriller
+Lybius torquatus - Crime/Thriller
+Pavo cristatus - Comedy/Drama/Romance
+Anser caerulescens - Drama
+Hymenolaimus malacorhynchus - Comedy/Drama/Romance
+Cervus duvauceli - Comedy/Drama/Romance
+Uraeginthus granatina - (no genres listed)
+Macropus agilis - Documentary
+Macropus rufus - Drama/Romance
+Mungos mungo - Comedy/Romance
+Antechinus flavipes - Horror/Thriller
+Panthera tigris - Comedy
+Coluber constrictor - Drama
+Macropus agilis - Action/War
+Cynomys ludovicianus - Comedy/Drama
+Bubalornis niger - Horror/Thriller
+Tringa glareola - Adventure
+Leprocaulinus vipera - Sci/Fi
+Herpestes javanicus - Action/Crime
+Cervus duvauceli - Drama/Thriller
+Ramphastos tucanus - Drama
+Haliaeetus leucocephalus - Documentary
+Mazama americana - Drama/Thriller
+Corvus albicollis - Comedy/Documentary
+Tachyglossus aculeatus - Drama
+Gazella granti - Drama/Romance
+Phalacrocorax niger - Drama
+Terrapene carolina - Comedy/Drama/Romance
+Phalacrocorax brasilianus - Comedy/Romance
+Ardea golieth - Documentary
+Crotalus adamanteus - (no genres listed)
+Rhea americana - Drama/Romance
+Tiliqua scincoides - Documentary
+TestBook - Horror
+My new Book - Horror
+80 mil años de soledad - Horror
+The Amazing Book - Horror
+Aiden Tommy - Fun
+Andres Bernal Book - Fun
+The internal hell - Fear
+===========================================
+Books in State = 'I'
+===========================================
+Sagittarius serpentarius - Documentary
+Varanus sp. - Drama/Horror/Mystery/Thriller
+Corallus hortulanus cooki - Children/Comedy
+Tyto novaehollandiae - Comedy
+Butorides striatus - Documentary
+Columba livia - Drama/Musical
+Hystrix cristata - Adventure/Documentary
+Agelaius phoeniceus - Crime/Drama/Thriller
+Vulpes cinereoargenteus - Romance/Western
+Herpestes javanicus - Animation/Sci/Fi
+Sus scrofa - Crime/Drama
+Trichosurus vulpecula - (no genres listed)
+Cacatua tenuirostris - Comedy/Drama
+Dipodomys deserti - Action/Comedy
+Aonyx cinerea - Drama
+Lamprotornis nitens - Adventure/Drama
+Phoenicopterus chilensis - Drama
+Alectura lathami - Drama
+Kobus defassa - Action/Crime/Thriller
+Vulpes chama - Adventure/Sci/Fi
+Psittacula krameri - Drama
+Acanthaster planci - Thriller
+Tiliqua scincoides - Animation/Children
+Melophus lathami - Comedy/Romance
+Mirounga angustirostris - Drama/Sci/Fi
+Sitta canadensis - Drama
+Pelecanus conspicillatus - Horror/Thriller
+Mazama americana - Drama/Musical/Romance
+Butorides striatus - Documentary
+Lepus townsendii - Animation/Fantasy
+Giraffe camelopardalis - Action/Comedy/Crime
+Phalacrocorax carbo - Comedy/Crime/Drama/Romance
+Pseudoleistes virescens - Comedy/Horror/Mystery
+Ara ararauna - Adventure/Children/Fantasy/Sci/Fi/Thriller
+Macropus rufus - Comedy/Drama/Romance
+Larus fuliginosus - Children/Drama
+Potos flavus - Action/Adventure/Drama/War
+Aegypius tracheliotus - Comedy
+Salvadora hexalepis - Comedy/Romance
+Thalasseus maximus - Musical/Romance
+Rangifer tarandus - Crime/Drama/Musical
+Sitta canadensis - Comedy/Drama
+Spermophilus parryii - Drama/Mystery/Thriller
+Milvus migrans - Crime/Horror/Mystery/Thriller
+Pelecans onocratalus - Children/Comedy/Musical
+Phascogale calura - Comedy/Drama/Romance
+Alcelaphus buselaphus caama - Comedy/Drama/Romance
+Macropus eugenii - Crime/Mystery/Thriller
+Larus dominicanus - Horror
+Coluber constrictor - Drama/Romance
+Plegadis falcinellus - Action/Drama/War/Western
+La casa de papel - Horror
+La casa de papel - Horror
+La casa de papel - Horror
+La casa de papel - Horror
+La casa de papel - Horror
+La casa de papel - Horror

@@ -1,5 +1,4 @@
 ﻿using NexusLibrary.Core.DTOs;
-using NexusLibrary.Core.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

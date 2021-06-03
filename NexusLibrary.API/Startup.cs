@@ -57,6 +57,7 @@ namespace NexusLibrary.API
             services.AddTransient<IEditorialRepository, EditorialRepository>();
             services.AddTransient<IAuthorRepository, AuthorRepository>();
             services.AddTransient<IBookService, BookService>();
+            services.AddTransient<IReportService, ReporterService>();
 
             //Automapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

@@ -63,6 +63,7 @@ namespace NexusLibrary.API.Controllers
         {
             var books = await _bookService.GetBooksByEditorialName(editorialName);
             var response = new Response<IEnumerable<BookEditorialDto>>(books);
+
             return Ok(response);
         }
     }
